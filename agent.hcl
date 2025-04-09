@@ -23,6 +23,6 @@ listener "tcp" {
 }
 
 template {
-  source      = "/vault-agent/TARGET_FILE_NAME"
+  source      = "/vault-agent/SOURCE_FILE_NAME"
   destination = "/config/TARGET_FILE_NAME"
 }
