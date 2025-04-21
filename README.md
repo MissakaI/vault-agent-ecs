@@ -11,7 +11,8 @@ the AWS IAM authentication method for Vault.
 | --- | --- |
 | `VAULT_ROLE` | Name of the Vault role configured with the IAM auth method |
 | `TARGET_FILE_NAME` | Name of the file you're reading the template and writing the result. |
-| `VAULT_AGENT_TEMPLATE` | Base64 encoded template file that you want Vault agent to render |
+| `PREDEFINED_VAULT_AGENT_TEMPLATE` | Name of existing templates packaged with the Image. Do not set `VAULT_AGENT_TEMPLATE` value if using this. |
+| `VAULT_AGENT_TEMPLATE` | Base64 encoded template file that you want Vault agent to render. Do not set `PREDEFINED_VAULT_AGENT_TEMPLATE` value if using this. |
 | `VAULT_AGENT_EXIT_AFTER_AUTH` | Must be `true` or `false`. Defaults to `true`. |
 
 Vault agent will read the template from `/vault-agent` and write the
@@ -101,3 +102,9 @@ resource "aws_ecs_task_definition" "task" {
   )
 }
 ```
+
+## Other Template variables
+
+| Template Name | Environment Variable | Description |
+| --- | --- | --- |
+| `shell-all-secrets.env` | `SECRETS_PATH` | Path of the secrets to fetch |
